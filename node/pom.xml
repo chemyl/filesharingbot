@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>dispatcher</artifactId>
+    <artifactId>node</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -17,7 +17,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!--    springboot starter web for strting application as springboot -->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
