@@ -34,7 +34,7 @@ public class UpdateController {
             log.error("Received updated is null");
             return;
         }
-        if (update.getMessage() != null) {
+        if (update.hasMessage()) {
             distributeMessageByType(update);
         } else {
             log.error("Usupported type is reseived: " + update);
@@ -44,11 +44,11 @@ public class UpdateController {
     private void distributeMessageByType(
             Update update) {           //распределить входящие сообщения для брокера в зависимости от типа входящих данных
         var message = update.getMessage();
-        if (message.getText() != null) {
+        if (message.hasText()) {
             processTextMessage(update);
-        } else if (message.getDocument() != null) {
+        } else if (message.hasDocument()) {
             processDocumentMessage(update);
-        } else if (message.getPhoto() != null) {
+        } else if (message.hasPhoto()) {
             processPhotoMessage(update);
         } else {
             setUnsupportedContentMessage(update);
@@ -83,7 +83,7 @@ public class UpdateController {
         setFileIsReceivedView(update);
     }
 
-    private void processTextMessage(Update update) {        // передача каждого типа данных в нужную очередь
+    private void  processTextMessage(Update update) {        // передача каждого типа данных в нужную очередь
         updateProducer.produce(TEXT_MESSAGE_UPDATE, update);
     }
 }

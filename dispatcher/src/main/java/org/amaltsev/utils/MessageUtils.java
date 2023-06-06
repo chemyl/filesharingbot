@@ -6,9 +6,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Component
 public class MessageUtils {
 
-    // Используя спринг@Component, можно из метода сделать бин (синглтон) вместо обозначения его статическим
-    // в нужном месте программы получить этот бин из контекста приложения
-
     public SendMessage generateSendMessageWithText(Update update, String text) {
         var message = update.getMessage();
         var sendMessage = new SendMessage();

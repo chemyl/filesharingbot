@@ -19,7 +19,8 @@ public class UpdateProducerImpl implements UpdateProducer {
     @Override
     public void produce(String rabbitQueue, Update update) {
         log.debug(update.getMessage().getText());
-        rabbitTemplate.convertAndSend(rabbitQueue, update);     //бин подтягивается из ampq зависимости. После чего, спринг в процессе
+        rabbitTemplate.convertAndSend(rabbitQueue, update);
+        //бин подтягивается из ampq зависимости. После чего, спринг в процессе
         // работы его создаст и поместит в свой контекст. Вызвать на нем метод convertAndSend(имя очереди и апдейт, который преобразуется
         // в JSON и отправится в rabbitMQ )
 
